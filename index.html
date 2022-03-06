@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Przelicznik walut</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+    integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap" rel="stylesheet">
+
+  <link href="css/style.css" rel="stylesheet">
+  <link href="css/container.css" rel="stylesheet">
+  <link href="css/form.css" rel="stylesheet">
+
+  <script defer src="js/script.js"></script>
+
+</head>
+
+<body>
+  <div class="container">
+    <form class="form js-form">
+      <fieldset class="form__fieldset">
+        <legend class="form__legend">Przelicznik walut</legend>
+
+        <label class="form__label">
+          Podaj kwotę do przeliczenia:
+          <input class="form__inputAmount js-form__inputAmount" type="number" min="0" step="0.01" required>
+        </label>
+
+        <select class="form__selectElementFrom js-form__selectElementFrom">
+          <option value="PLN">PLN</option>
+          <option value="EUR">EUR</option>
+          <option value="USD">USD</option>
+        </select>
+
+        <p>
+          <label class="form__label">Na jaką walutę chcesz przeliczyć?</label>
+          <select class="form__selectElementTo js-form__selectElementTo">
+            <option value="PLN">PLN</option>
+            <option value="EUR">EUR</option>
+            <option value="USD">USD</option>
+          </select>
+        </p>
+
+        <p>
+          <button class="form__buttonConvert">Przelicz</button>
+        </p>
+
+        <p>
+          <label class="form__label">Przeliczona kwota wynosi:</label>
+          <strong class="form__strongConvertedAmount js-form__strongConvertedAmount"></strong>
+          <strong class="form__strongCurrencyName js-form__strongCurrencyName"></strong>
+        </p>
+
+      </fieldset>
+    </form>
+  </div>
+  
+</body>
+
+</html>
