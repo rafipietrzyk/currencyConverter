@@ -6,50 +6,49 @@ let convertedAmount = document.querySelector(".js-form__strongConvertedAmount");
 let currencyName = document.querySelector(".js-form__strongCurrencyName");
 let elementFrom = document.querySelector(".js-form__selectElementFrom");
 let elementTo = document.querySelector(".js-form__selectElementTo");
-let result = 0;
+
 const PLN = "PLN";
 const EUR = "EUR";
 const USD = "USD";
-const RATE_EUR = 4.90;
-const RATE_USD = 4.48;
-const ERROR_MESSAGE = "Kwota musi być podana, oraz kody walut nie mogą być takie same";
-const EMPTY_MESSAGE = "";
+
+const RATE_PLN = 1;
+const RATE_EUR = 4.68;
+const RATE_USD = 4.43;
+
+let rateFirst;
+let rateSecound;
+let result;
 
 form.addEventListener("submit", (event) => {
     event.preventDefault();
-    if (elementFrom.value === PLN && elementTo.value === EUR) {
-        result = inputAmount.value * (1 / RATE_EUR); // 0,20
-        convertedAmount.innerText = result.toFixed(2);
-        currencyName.innerText = EUR;
+
+    switch (elementFrom.value) {
+        case PLN:
+            rateFirst = RATE_PLN;
+            break;
+        case EUR:
+            rateFirst = RATE_EUR;
+            break;
+        case USD:
+            rateFirst = RATE_USD;
+            break;
     }
-    else if (elementFrom.value === PLN && elementTo.value === USD) {
-        result = inputAmount.value * (1 / RATE_USD); // 0,22
-        convertedAmount.innerText = result.toFixed(2);
-        currencyName.innerText = USD;
+
+    switch (elementTo.value) {
+        case PLN:
+            rateSecound = RATE_PLN;
+            break;
+        case EUR:
+            rateSecound = RATE_EUR;
+            break;
+        case USD:
+            rateSecound = RATE_USD;
+            break;
     }
-    else if (elementFrom.value === EUR && elementTo.value === PLN) {
-        result = inputAmount.value * RATE_EUR; // 4,90
-        convertedAmount.innerText = result.toFixed(2);
-        currencyName.innerText = PLN;
-    }
-    else if (elementFrom.value === USD && elementTo.value === PLN) {
-        result = inputAmount.value * RATE_USD; // 4,48
-        convertedAmount.innerText = result.toFixed(2);
-        currencyName.innerText = PLN;
-    }
-    else if (elementFrom.value === EUR && elementTo.value === USD) {
-        result = inputAmount.value * 1.09; // 1,09
-        convertedAmount.innerText = result.toFixed(2);
-        currencyName.innerText = USD;
-    }
-    else if (elementFrom.value === USD && elementTo.value === EUR) {
-        result = inputAmount.value * 0.91; // 0,91
-        convertedAmount.innerText = result.toFixed(2);
-        currencyName.innerText = EUR;
-    }
-    else {
-        convertedAmount.innerText = ERROR_MESSAGE;
-        currencyName.innerText = EMPTY_MESSAGE;
-    }
+
+    result = (inputAmount.value * rateFirst) / rateSecound;
+    convertedAmount.innerText = result.toFixed(2);
+    currencyName.innerText = elementTo.value;
+
 });
 
