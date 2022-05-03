@@ -10,10 +10,14 @@ let elementTo = document.querySelector(".js-form__selectElementTo");
 const PLN = "PLN";
 const EUR = "EUR";
 const USD = "USD";
+const GBP = "GBP";
+const CHF = "CHF";
 
 const RATE_PLN = 1;
-const RATE_EUR = 4.68;
-const RATE_USD = 4.43;
+const RATE_EUR = 4.69;
+const RATE_USD = 4.46;
+const RATE_GBP = 5.57;
+const RATE_CHF = 4.56;
 
 let rateFirst;
 let rateSecound;
@@ -32,6 +36,12 @@ form.addEventListener("submit", (event) => {
         case USD:
             rateFirst = RATE_USD;
             break;
+        case GBP:
+            rateFirst = RATE_GBP;
+            break;
+        case CHF:
+            rateFirst = RATE_CHF;
+            break;
     }
 
     switch (elementTo.value) {
@@ -44,6 +54,12 @@ form.addEventListener("submit", (event) => {
         case USD:
             rateSecound = RATE_USD;
             break;
+        case GBP:
+            rateSecound = RATE_GBP;
+            break;
+        case CHF:
+            rateSecound = RATE_CHF;
+            break
     }
 
     result = (inputAmount.value * rateFirst) / rateSecound;
