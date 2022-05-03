@@ -4,7 +4,7 @@
 
 https://rafipietrzyk.github.io/currencyConverter/
 
-![screen projektu](images/screenAplication.jpg)
+![screen projektu](images/screenApplication.jpg)
 
 ## Description
 
