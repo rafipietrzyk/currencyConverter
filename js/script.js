@@ -1,5 +1,3 @@
-console.log("Witam Cię w moim świecie. Pozdrawiam! Rafał Pietrzyk.");
-
 let form = document.querySelector(".js-form");
 let inputAmount = document.querySelector(".js-form__inputAmount");
 let convertedAmount = document.querySelector(".js-form__strongConvertedAmount");
