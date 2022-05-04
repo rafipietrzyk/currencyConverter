@@ -57,7 +57,7 @@ form.addEventListener("submit", (event) => {
             break;
         case CHF:
             rateSecound = RATE_CHF;
-            break
+            break;
     }
 
     result = (inputAmount.value * rateFirst) / rateSecound;
